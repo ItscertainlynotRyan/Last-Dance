@@ -23,7 +23,7 @@ const NAMES = [
   'Huilson',
   'Cleiton',
   'Rodrigo',
-  'João',
+  'José',
 ];
 
 const { width } = Dimensions.get('window');
@@ -261,7 +261,7 @@ export default function App() {
 
           {selected && (
             <Text style={styles.selected}>
-              ✅ Professor selecionado: {selected}
+              ✅ Professor selecionado: <Text style={styles.selectedBold}>{selected}</Text>
             </Text>
           )}
 
@@ -436,6 +436,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
     color: '#006400',
+  },
+  selectedBold: {
+    fontWeight: '900',
+    fontSize: 20,
   },
   result: {
     marginTop: 8,
