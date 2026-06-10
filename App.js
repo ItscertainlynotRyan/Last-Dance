@@ -132,8 +132,16 @@ export default function App() {
       rotateAnim.setValue(0);
       
       const names = buildBiasedNames();
-      const totalRotations = 5 + Math.random() * 3;
-      const totalDegrees = 360 * totalRotations;
+      
+      // Find Cleiton's position in the original NAMES array
+      const cleitonIndex = NAMES.indexOf('Cleiton');
+      const segmentDegrees = 360 / NAMES.length; // Each segment is 36 degrees
+      const cleitonPosition = cleitonIndex * segmentDegrees;
+      
+      // Calculate total rotation to land on Cleiton
+      // Random full rotations (3-6) + exact position of Cleiton
+      const fullRotations = 3 + Math.floor(Math.random() * 4);
+      const totalDegrees = 360 * fullRotations + cleitonPosition;
       
       // Animated spin with easing
       Animated.timing(rotateAnim, {
